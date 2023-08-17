@@ -1,8 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Clean DDD Architecture Sample";
+    ViewData["Title"] = "Request are validated with regex expressions, JwtBearer configured for minimal APIs, Clean DDD Architecture Sample";
 }
 <div class="row">
     <div class="col-md-4">
+        <h3>About  seeders info and enpoints security</h3>
+        <p>
+            You can login with this credentials:
+            <ul>
+                <li>Username: "usernameTest"</li>
+                <li>Password: "Admin123"</li>
+            </ul>
+            <ul>
+                <li>Enpoint Contributor.create require role: "contributor:create"</li>
+                <li>Enpoint Contributor.list require role: "contributor:list"</li>
+                <li>Enpoint Contributor.getbyid require role: "contributor:getbyid"</li>
+                <li>Enpoint Contributor.update require role: "contributor:update"</li>
+                <li>Enpoint Contributor.delete require role: "contributor:delete"</li>
+            </ul>
+        </p>
         <h3>Using this template</h3>
         <p>
             This template includes support for:
@@ -10,7 +25,6 @@
                 <li>APIs using API Endpoints (in the /Endpoints/ProjectEndpoints folder)</li>
                 <li>APIs using FastEndpoints/Minimal APIs (in the /Endpoints/ContributorEndpoints folder)</li>
                 <li>APIs using Controllers (in the /Api and /ApiModels folders)</li>
-                <li>Pages using Razor Pages (in the /Pages folder and /Views/Shared folder)</li>
                 <li>Pages using Controllers and Views (in the /Controllers, /ViewModels, and /Views folders - keep /Views/Shared for Razor Pages though)</li>
             </ul>
             Choose which features you will use for your project and delete the ones you will not use.
@@ -37,6 +51,11 @@
     </div>
     <div class="col-md-4">
         <h3>About the Author</h3>
+        <ul>
+            <li><a href="https://github.com/soidneo">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/pablogomezr/">Linkedin</a></li>
+        </ul>
+        <h3>Template info:</h3>
         <ul>
             <li><a href="https://ardalis.com">Blog - Ardalis.com</a></li>
             <li><a href="https://twitter.com/ardalis">Twitter - @@ardalis</a></li>

@@ -17,7 +17,6 @@ public class GetById : Endpoint<GetContributorByIdRequest, ContributorRecord>
   public override void Configure()
   {
     Get(GetContributorByIdRequest.Route);
-    AllowAnonymous();
     Options(x => x
       .RequireAuthorization(c => c.RequireClaim("role", "parametrics:getbyid"))
       .WithTags("ContributorEndpoints"));

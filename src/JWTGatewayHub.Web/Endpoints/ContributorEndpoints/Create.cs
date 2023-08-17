@@ -16,9 +16,8 @@ public class Create : Endpoint<CreateContributorRequest, CreateContributorRespon
   public override void Configure()
   {
     Post(CreateContributorRequest.Route);
-    AllowAnonymous();
     Options(x => x
-      .RequireAuthorization(c => c.RequireClaim("role", "parametrics:getbyid"))
+      .RequireAuthorization(c => c.RequireClaim("role", "parametrics:create"))
       .WithTags("ContributorEndpoints"));
   }
   public override async Task HandleAsync(

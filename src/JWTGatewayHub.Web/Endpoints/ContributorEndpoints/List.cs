@@ -17,6 +17,7 @@ public class List : EndpointWithoutRequest<ContributorListResponse>
     Get("/Contributors");
     AllowAnonymous();
     Options(x => x
+      .RequireAuthorization(c => c.RequireClaim("role", "parametrics:list"))
       .WithTags("ContributorEndpoints"));
   }
   public override async Task HandleAsync(CancellationToken cancellationToken)
