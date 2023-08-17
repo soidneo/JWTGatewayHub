@@ -1,45 +1,50 @@
 # JWT Bearer Token
 JWT token authentication is configured in the Program.cs class. The "IssuerSigningKey" value is set in the application configuration file (appsettings.json).
     ## Configure Security Endpoints
-    Each endpoint can be configured to require a custom role. For example
-    
-        Create Contributor Endpoint
+    Each endpoint can be configured to require a custom role. For example:
+         Create Contributor Endpoint
+         
         .RequireAuthorization(c => c.RequireClaim("role", "parametrics:create"))
         List Contributor Endpoint
         .RequireAuthorization(c => c.RequireClaim("role", "parametrics:list"))
         ...
-        The roles for any user are configured in the AuthUserRoles table.
-
-    The Claims required to access the endpoints are added in the JwtBearerToken generated at login.
+    
+The roles for any user are configured in the AuthUserRoles table.
+The Claims required to access the endpoints are added in the JwtBearerToken generated at login.
 # Regular Expressions Request Validations
 
-Request classes that inherit from the RequestBase class will be able to validate all their properties through reflection and DataAnnotations, using a custom validation method called "Validate." This method is invoked in the opening line of the Handle method for each endpoint. It is recommended to utilize the "[RegularExpression]" tag for each property that can be validated using a text pattern. This approach enables efficient and customizable validations, along with the configuration of response messages for each property. Through FluentValidation, a list of errors is returned, providing a clear and comprehensive response to the user. 
-    ## Regular Expressions examples
-    ## Integers from 1 to 100:
+Request classes that inherit from the RequestBase class will be able to validate all their properties through reflection and DataAnnotations.
+
+Using a custom validation method called "Validate." This method is invoked in the opening line of the Handle method for each endpoint. It is recommended to utilize the "[RegularExpression]" tag for each property that can be validated using a text pattern.
+
+This approach enables efficient and customizable validations, along with the configuration of response messages for each property. Through FluentValidation, a list of errors is returned, providing a clear and comprehensive response to the user. 
+
+## Regular Expressions examples
+   ## Integers from 1 to 100:
         [RegularExpression(@"^(?:[1-9]|[1-9][0-9]|100)$", ErrorMessage = "Enter a number between 1 and 100.")]
         public int IntegerInRange { get; set; }
-    ## Decimal numbers:
+   ## Decimal numbers:
         [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Enter a valid number with up to 2 decimal places.")]
         public decimal DecimalNumber { get; set; }
-    ## Phone numbers (standard format):
+   ## Phone numbers (standard format):
         [RegularExpression(@"^\d{3}-\d{3}-\d{4}$", ErrorMessage = "Enter a valid phone number in the format XXX-XXX-XXXX.")]
         public string PhoneNumber { get; set; }
-    ## Mobile numbers (standard format):
+   ## Mobile numbers (standard format):
         [RegularExpression(@"^\d{3}-\d{3}-\d{4}$", ErrorMessage = "Enter a valid mobile number in the format XXX-XXX-XXXX.")]
         public string MobileNumber { get; set; }
-    ## URLs:
+   ## URLs:
         [RegularExpression(@"^(https?://)?(www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(/\S*)?$", ErrorMessage = "Enter a valid URL.")]
         public string Url { get; set; }
-    ## Email addresses (Email can be validated with [EmailAddress] tag):
+   ## Email addresses (Email can be validated with [EmailAddress] tag):
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Enter a valid email address.")]
         public string Email { get; set; }
-    ## Dates in YYYY-MM-DD format:
+   ## Dates in YYYY-MM-DD format:
         [RegularExpression(@"^\d{4}-\d{2}-\d{2}$", ErrorMessage = "Enter a valid date in the format YYYY-MM-DD.")]
         public string Date { get; set; }
-    ## ZIP codes (standard format):
+   ## ZIP codes (standard format):
         [RegularExpression(@"^\d{5}$", ErrorMessage = "Enter a valid 5-digit ZIP code.")]
         public string ZipCode { get; set; }
-    ## Special alphanumeric code (e.g., format AA1234):
+   ## Special alphanumeric code (e.g., format AA1234):
         [RegularExpression(@"^[A-Z]{2}\d{4}$", ErrorMessage = "Enter a valid alphanumeric code in the format AA1234.")]
         public string SpecialCode { get; set; }
         
