@@ -1,3 +1,5 @@
+# Custom Content
+
 # JWT Bearer Token
 JWT token authentication is configured in the Program.cs class. The "IssuerSigningKey" value is set in the application configuration file (appsettings.json).
     ## Configure Security Endpoints
@@ -48,6 +50,8 @@ This approach enables efficient and customizable validations, along with the con
         [RegularExpression(@"^[A-Z]{2}\d{4}$", ErrorMessage = "Enter a valid alphanumeric code in the format AA1234.")]
         public string SpecialCode { get; set; }
         
+# Template Content
+
 # Clean Architecture
 
 A starting point for Clean Architecture with ASP.NET Core. [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) is just the latest in a series of names for the same loosely-coupled, dependency-inverted architecture. You will also find it named [hexagonal](http://alistair.cockburn.us/Hexagonal+architecture), [ports-and-adapters](http://www.dossier-andreas.net/software_architecture/ports_and_adapters.html), or [onion architecture](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/).
@@ -56,6 +60,7 @@ This architecture is used in the [DDD Fundamentals course](https://www.pluralsig
 
 ## Table Of Contents
 
+- [Custom Content](#custom-content)
 - [JWT Bearer Token](#jwt-bearer-token)
   * [Configure Security Endpoints](#configure-security-endpoints)
    [Regular Expressions examples](#regular-expressions-examples)
@@ -68,6 +73,7 @@ This architecture is used in the [DDD Fundamentals course](https://www.pluralsig
   * [Dates in YYYY-MM-DD format](#dates-in-yyyy-mm-dd-format)
   * [ZIP codes (standard format)](#zip-codes-standard-format)
   * [Special alphanumeric code (e.g., format AA1234)](#special-alphanumeric-code-eg-format-aa1234)
+- [Template Content](#template-content)
 - [Clean Architecture](#clean-architecture)
   * [Table Of Contents](#table-of-contents)
   * [Give a Star! :star:](#give-a-star-star)
