@@ -1,12 +1,56 @@
-[![.NET Core](https://github.com/ardalis/CleanArchitecture/workflows/.NET%20Core/badge.svg)](https://github.com/ardalis/CleanArchitecture/actions)
-[![publish Ardalis.CleanArchitecture Template to nuget](https://github.com/ardalis/CleanArchitecture/actions/workflows/publish.yml/badge.svg)](https://github.com/ardalis/CleanArchitecture/actions/workflows/publish.yml)
-[![Ardalis.CleanArchitecture.Template on NuGet](https://img.shields.io/nuget/v/Ardalis.CleanArchitecture.Template?label=Ardalis.CleanArchitecture.Template)](https://www.nuget.org/packages/Ardalis.CleanArchitecture.Template/)
+# Custom Content
 
-<a href="https://twitter.com/intent/follow?screen_name=ardalis">
-    <img src="https://img.shields.io/twitter/follow/ardalis.svg?label=Follow%20@ardalis" alt="Follow @ardalis" />
-</a> &nbsp; <a href="https://twitter.com/intent/follow?screen_name=nimblepros">
-    <img src="https://img.shields.io/twitter/follow/nimblepros.svg?label=Follow%20@nimblepros" alt="Follow @nimblepros" />
-</a>
+# JWT Bearer Token
+JWT token authentication is configured in the Program.cs class. The "IssuerSigningKey" value is set in the application configuration file (appsettings.json).
+    ## Configure Security Endpoints
+    Each endpoint can be configured to require a custom role. For example:
+         Create Contributor Endpoint
+         
+        .RequireAuthorization(c => c.RequireClaim("role", "parametrics:create"))
+        List Contributor Endpoint
+        .RequireAuthorization(c => c.RequireClaim("role", "parametrics:list"))
+        ...
+    
+The roles for any user are configured in the AuthUserRoles table.
+The Claims required to access the endpoints are added in the JwtBearerToken generated at login.
+# Regular Expressions Request Validations
+
+Request classes that inherit from the RequestBase class will be able to validate all their properties through reflection and DataAnnotations.
+
+Using a custom validation method called "Validate." This method is invoked in the opening line of the Handle method for each endpoint. It is recommended to utilize the "[RegularExpression]" tag for each property that can be validated using a text pattern.
+
+This approach enables efficient and customizable validations, along with the configuration of response messages for each property. Through FluentValidation, a list of errors is returned, providing a clear and comprehensive response to the user. 
+
+## Regular Expressions examples
+   ## Integers from 1 to 100:
+        [RegularExpression(@"^(?:[1-9]|[1-9][0-9]|100)$", ErrorMessage = "Enter a number between 1 and 100.")]
+        public int IntegerInRange { get; set; }
+   ## Decimal numbers:
+        [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Enter a valid number with up to 2 decimal places.")]
+        public decimal DecimalNumber { get; set; }
+   ## Phone numbers (standard format):
+        [RegularExpression(@"^\d{3}-\d{3}-\d{4}$", ErrorMessage = "Enter a valid phone number in the format XXX-XXX-XXXX.")]
+        public string PhoneNumber { get; set; }
+   ## Mobile numbers (standard format):
+        [RegularExpression(@"^\d{3}-\d{3}-\d{4}$", ErrorMessage = "Enter a valid mobile number in the format XXX-XXX-XXXX.")]
+        public string MobileNumber { get; set; }
+   ## URLs:
+        [RegularExpression(@"^(https?://)?(www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(/\S*)?$", ErrorMessage = "Enter a valid URL.")]
+        public string Url { get; set; }
+   ## Email addresses (Email can be validated with [EmailAddress] tag):
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Enter a valid email address.")]
+        public string Email { get; set; }
+   ## Dates in YYYY-MM-DD format:
+        [RegularExpression(@"^\d{4}-\d{2}-\d{2}$", ErrorMessage = "Enter a valid date in the format YYYY-MM-DD.")]
+        public string Date { get; set; }
+   ## ZIP codes (standard format):
+        [RegularExpression(@"^\d{5}$", ErrorMessage = "Enter a valid 5-digit ZIP code.")]
+        public string ZipCode { get; set; }
+   ## Special alphanumeric code (e.g., format AA1234):
+        [RegularExpression(@"^[A-Z]{2}\d{4}$", ErrorMessage = "Enter a valid alphanumeric code in the format AA1234.")]
+        public string SpecialCode { get; set; }
+        
+# Template Content
 
 # Clean Architecture
 
@@ -16,6 +60,20 @@ This architecture is used in the [DDD Fundamentals course](https://www.pluralsig
 
 ## Table Of Contents
 
+- [Custom Content](#custom-content)
+- [JWT Bearer Token](#jwt-bearer-token)
+  * [Configure Security Endpoints](#configure-security-endpoints)
+   [Regular Expressions examples](#regular-expressions-examples)
+  * [Integers from 1 to 100](#integers-from-1-to-100)
+  * [Decimal numbers](#decimal-numbers)
+  * [Phone numbers (standard format)](#phone-numbers-standard-format)
+  * [Mobile numbers (standard format)](#mobile-numbers-standard-format)
+  * [URLs](#urls)
+  * [Email addresses (Email can be validated with [EmailAddress] tag)](#email-addresses-email-can-be-validated-with-emailaddress-tag)
+  * [Dates in YYYY-MM-DD format](#dates-in-yyyy-mm-dd-format)
+  * [ZIP codes (standard format)](#zip-codes-standard-format)
+  * [Special alphanumeric code (e.g., format AA1234)](#special-alphanumeric-code-eg-format-aa1234)
+- [Template Content](#template-content)
 - [Clean Architecture](#clean-architecture)
   * [Table Of Contents](#table-of-contents)
   * [Give a Star! :star:](#give-a-star-star)
@@ -199,6 +257,16 @@ This solution template has code built in to support a few common patterns, espec
 Domain events are a great pattern for decoupling a trigger for an operation from its implementation. This is especially useful from within domain entities since the handlers of the events can have dependencies while the entities themselves typically do not. In the sample, you can see this in action with the `ToDoItem.MarkComplete()` method. The following sequence diagram demonstrates how the event and its handler are used when an item is marked complete through a web API endpoint.
 
 ![Domain Event Sequence Diagram](https://user-images.githubusercontent.com/782127/75702680-216ce300-5c73-11ea-9187-ec656192ad3b.png)
+
+[![.NET Core](https://github.com/ardalis/CleanArchitecture/workflows/.NET%20Core/badge.svg)](https://github.com/ardalis/CleanArchitecture/actions)
+[![publish Ardalis.CleanArchitecture Template to nuget](https://github.com/ardalis/CleanArchitecture/actions/workflows/publish.yml/badge.svg)](https://github.com/ardalis/CleanArchitecture/actions/workflows/publish.yml)
+[![Ardalis.CleanArchitecture.Template on NuGet](https://img.shields.io/nuget/v/Ardalis.CleanArchitecture.Template?label=Ardalis.CleanArchitecture.Template)](https://www.nuget.org/packages/Ardalis.CleanArchitecture.Template/)
+
+<a href="https://twitter.com/intent/follow?screen_name=ardalis">
+    <img src="https://img.shields.io/twitter/follow/ardalis.svg?label=Follow%20@ardalis" alt="Follow @ardalis" />
+</a> &nbsp; <a href="https://twitter.com/intent/follow?screen_name=nimblepros">
+    <img src="https://img.shields.io/twitter/follow/nimblepros.svg?label=Follow%20@nimblepros" alt="Follow @nimblepros" />
+</a>
 
 ## Related Projects
 
