@@ -1,0 +1,438 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Infrastructure\\JWTGatewayHub.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Core\\JWTGatewayHub.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Core\\JWTGatewayHub.Core.csproj",
+        "projectName": "JWTGatewayHub.Core",
+        "projectPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Core\\JWTGatewayHub.Core.csproj",
+        "packagesPath": "C:\\Users\\soidn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\NuGet.Config",
+          "C:\\Users\\soidn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.SharedKernel\\JWTGatewayHub.SharedKernel.csproj": {
+                "projectPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.SharedKernel\\JWTGatewayHub.SharedKernel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Ardalis.GuardClauses": {
+              "target": "Package",
+              "version": "[4.0.1, )",
+              "versionCentrallyManaged": true
+            },
+            "Ardalis.Result": {
+              "target": "Package",
+              "version": "[7.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Ardalis.SmartEnum": {
+              "target": "Package",
+              "version": "[7.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[6.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Autofac": {
+              "target": "Package",
+              "version": "[7.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.0.1, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "Ardalis.ApiEndpoints": "[4.0.1, )",
+            "Ardalis.GuardClauses": "[4.0.1, )",
+            "Ardalis.HttpClientTestExtensions": "[4.0.0, )",
+            "Ardalis.ListStartupServices": "[1.1.4, )",
+            "Ardalis.Result": "[7.0.0, )",
+            "Ardalis.Result.AspNetCore": "[7.0.0, )",
+            "Ardalis.SmartEnum": "[7.0.0, )",
+            "Ardalis.Specification": "[6.1.0, )",
+            "Ardalis.Specification.EntityFrameworkCore": "[6.1.0, )",
+            "Autofac": "[7.0.0, )",
+            "Autofac.Extensions.DependencyInjection": "[8.0.0, )",
+            "coverlet.collector": "[3.2.0, )",
+            "FastEndpoints": "[5.8.1, )",
+            "FastEndpoints.ApiExplorer": "[2.0.1, )",
+            "FastEndpoints.Swagger": "[5.5.0, )",
+            "FastEndpoints.Swagger.Swashbuckle": "[2.0.1, )",
+            "FluentValidation": "[11.7.1, )",
+            "MediatR": "[12.0.1, )",
+            "Microsoft.AspNetCore.Authentication.JwtBearer": "[7.0.10, )",
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "[7.0.10, )",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "[7.0.4, )",
+            "Microsoft.AspNetCore.Mvc.Testing": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.InMemory": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.Sqlite": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.SqlServer": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.Tools": "[7.0.4, )",
+            "Microsoft.IdentityModel.Tokens": "[6.21.0, )",
+            "Microsoft.NET.Test.Sdk": "[17.5.0, )",
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": "[7.0.5, )",
+            "Moq": "[4.18.4, )",
+            "Newtonsoft.Json": "[13.0.3, )",
+            "ReportGenerator": "[5.1.19, )",
+            "Serilog.AspNetCore": "[6.1.0, )",
+            "Serilog.Sinks.ApplicationInsights": "[4.0.1-dev-00040, )",
+            "SQLite": "[3.13.0, )",
+            "Swashbuckle.AspNetCore": "[6.5.0, )",
+            "Swashbuckle.AspNetCore.Annotations": "[6.5.0, )",
+            "System.IdentityModel.Tokens.Jwt": "[6.21.0, )",
+            "xunit": "[2.4.2, )",
+            "xunit.runner.visualstudio": "[2.4.5, )"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Infrastructure\\JWTGatewayHub.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Infrastructure\\JWTGatewayHub.Infrastructure.csproj",
+        "projectName": "JWTGatewayHub.Infrastructure",
+        "projectPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Infrastructure\\JWTGatewayHub.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\soidn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\NuGet.Config",
+          "C:\\Users\\soidn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Core\\JWTGatewayHub.Core.csproj": {
+                "projectPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.Core\\JWTGatewayHub.Core.csproj"
+              },
+              "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.SharedKernel\\JWTGatewayHub.SharedKernel.csproj": {
+                "projectPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.SharedKernel\\JWTGatewayHub.SharedKernel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Ardalis.Specification.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Autofac": {
+              "target": "Package",
+              "version": "[7.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.4, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )",
+              "versionCentrallyManaged": true
+            },
+            "SQLite": {
+              "target": "Package",
+              "version": "[3.13.0, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "Ardalis.ApiEndpoints": "[4.0.1, )",
+            "Ardalis.GuardClauses": "[4.0.1, )",
+            "Ardalis.HttpClientTestExtensions": "[4.0.0, )",
+            "Ardalis.ListStartupServices": "[1.1.4, )",
+            "Ardalis.Result": "[7.0.0, )",
+            "Ardalis.Result.AspNetCore": "[7.0.0, )",
+            "Ardalis.SmartEnum": "[7.0.0, )",
+            "Ardalis.Specification": "[6.1.0, )",
+            "Ardalis.Specification.EntityFrameworkCore": "[6.1.0, )",
+            "Autofac": "[7.0.0, )",
+            "Autofac.Extensions.DependencyInjection": "[8.0.0, )",
+            "coverlet.collector": "[3.2.0, )",
+            "FastEndpoints": "[5.8.1, )",
+            "FastEndpoints.ApiExplorer": "[2.0.1, )",
+            "FastEndpoints.Swagger": "[5.5.0, )",
+            "FastEndpoints.Swagger.Swashbuckle": "[2.0.1, )",
+            "FluentValidation": "[11.7.1, )",
+            "MediatR": "[12.0.1, )",
+            "Microsoft.AspNetCore.Authentication.JwtBearer": "[7.0.10, )",
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "[7.0.10, )",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "[7.0.4, )",
+            "Microsoft.AspNetCore.Mvc.Testing": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.InMemory": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.Sqlite": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.SqlServer": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.Tools": "[7.0.4, )",
+            "Microsoft.IdentityModel.Tokens": "[6.21.0, )",
+            "Microsoft.NET.Test.Sdk": "[17.5.0, )",
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": "[7.0.5, )",
+            "Moq": "[4.18.4, )",
+            "Newtonsoft.Json": "[13.0.3, )",
+            "ReportGenerator": "[5.1.19, )",
+            "Serilog.AspNetCore": "[6.1.0, )",
+            "Serilog.Sinks.ApplicationInsights": "[4.0.1-dev-00040, )",
+            "SQLite": "[3.13.0, )",
+            "Swashbuckle.AspNetCore": "[6.5.0, )",
+            "Swashbuckle.AspNetCore.Annotations": "[6.5.0, )",
+            "System.IdentityModel.Tokens.Jwt": "[6.21.0, )",
+            "xunit": "[2.4.2, )",
+            "xunit.runner.visualstudio": "[2.4.5, )"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.SharedKernel\\JWTGatewayHub.SharedKernel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.SharedKernel\\JWTGatewayHub.SharedKernel.csproj",
+        "projectName": "JWTGatewayHub.SharedKernel",
+        "projectPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.SharedKernel\\JWTGatewayHub.SharedKernel.csproj",
+        "packagesPath": "C:\\Users\\soidn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\src\\JWTGatewayHub.SharedKernel\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\soidn\\source\\repos\\JWTGatewayHub\\NuGet.Config",
+          "C:\\Users\\soidn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Ardalis.GuardClauses": {
+              "target": "Package",
+              "version": "[4.0.1, )",
+              "versionCentrallyManaged": true
+            },
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[6.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.7.1, )",
+              "versionCentrallyManaged": true
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.0.1, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.10, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.21.0, )",
+              "versionCentrallyManaged": true
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.21.0, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "Ardalis.ApiEndpoints": "[4.0.1, )",
+            "Ardalis.GuardClauses": "[4.0.1, )",
+            "Ardalis.HttpClientTestExtensions": "[4.0.0, )",
+            "Ardalis.ListStartupServices": "[1.1.4, )",
+            "Ardalis.Result": "[7.0.0, )",
+            "Ardalis.Result.AspNetCore": "[7.0.0, )",
+            "Ardalis.SmartEnum": "[7.0.0, )",
+            "Ardalis.Specification": "[6.1.0, )",
+            "Ardalis.Specification.EntityFrameworkCore": "[6.1.0, )",
+            "Autofac": "[7.0.0, )",
+            "Autofac.Extensions.DependencyInjection": "[8.0.0, )",
+            "coverlet.collector": "[3.2.0, )",
+            "FastEndpoints": "[5.8.1, )",
+            "FastEndpoints.ApiExplorer": "[2.0.1, )",
+            "FastEndpoints.Swagger": "[5.5.0, )",
+            "FastEndpoints.Swagger.Swashbuckle": "[2.0.1, )",
+            "FluentValidation": "[11.7.1, )",
+            "MediatR": "[12.0.1, )",
+            "Microsoft.AspNetCore.Authentication.JwtBearer": "[7.0.10, )",
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "[7.0.10, )",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "[7.0.4, )",
+            "Microsoft.AspNetCore.Mvc.Testing": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.InMemory": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.Sqlite": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.SqlServer": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore.Tools": "[7.0.4, )",
+            "Microsoft.IdentityModel.Tokens": "[6.21.0, )",
+            "Microsoft.NET.Test.Sdk": "[17.5.0, )",
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": "[7.0.5, )",
+            "Moq": "[4.18.4, )",
+            "Newtonsoft.Json": "[13.0.3, )",
+            "ReportGenerator": "[5.1.19, )",
+            "Serilog.AspNetCore": "[6.1.0, )",
+            "Serilog.Sinks.ApplicationInsights": "[4.0.1-dev-00040, )",
+            "SQLite": "[3.13.0, )",
+            "Swashbuckle.AspNetCore": "[6.5.0, )",
+            "Swashbuckle.AspNetCore.Annotations": "[6.5.0, )",
+            "System.IdentityModel.Tokens.Jwt": "[6.21.0, )",
+            "xunit": "[2.4.2, )",
+            "xunit.runner.visualstudio": "[2.4.5, )"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

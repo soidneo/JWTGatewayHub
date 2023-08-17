@@ -1,0 +1,12 @@
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\bin\Debug\net7.0\JWTGatewayHub.SharedKernel.deps.json
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\bin\Debug\net7.0\JWTGatewayHub.SharedKernel.dll
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\bin\Debug\net7.0\JWTGatewayHub.SharedKernel.pdb
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\JWTGatewayHub.SharedKernel.csproj.AssemblyReference.cache
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\JWTGatewayHub.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\JWTGatewayHub.SharedKernel.AssemblyInfoInputs.cache
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\JWTGatewayHub.SharedKernel.AssemblyInfo.cs
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\JWTGatewayHub.SharedKernel.csproj.CoreCompileInputs.cache
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\JWTGatewayHub.SharedKernel.dll
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\refint\JWTGatewayHub.SharedKernel.dll
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\JWTGatewayHub.SharedKernel.pdb
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.SharedKernel\obj\Debug\net7.0\ref\JWTGatewayHub.SharedKernel.dll

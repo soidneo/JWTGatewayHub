@@ -1,0 +1,15 @@
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\JWTGatewayHub.Core.csproj.AssemblyReference.cache
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\JWTGatewayHub.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\JWTGatewayHub.Core.AssemblyInfoInputs.cache
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\JWTGatewayHub.Core.AssemblyInfo.cs
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\JWTGatewayHub.Core.csproj.CoreCompileInputs.cache
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\bin\Debug\net7.0\JWTGatewayHub.Core.deps.json
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\bin\Debug\net7.0\JWTGatewayHub.Core.dll
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\bin\Debug\net7.0\JWTGatewayHub.Core.pdb
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\bin\Debug\net7.0\JWTGatewayHub.SharedKernel.dll
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\bin\Debug\net7.0\JWTGatewayHub.SharedKernel.pdb
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\JWTGatewayHub.Core.csproj.CopyComplete
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\JWTGatewayHub.Core.dll
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\refint\JWTGatewayHub.Core.dll
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\JWTGatewayHub.Core.pdb
+C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Core\obj\Debug\net7.0\ref\JWTGatewayHub.Core.dll

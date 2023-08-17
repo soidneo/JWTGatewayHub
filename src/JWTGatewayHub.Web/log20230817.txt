@@ -1,0 +1,253 @@
+2023-08-17 11:53:23.157 -05:00 [INF] Registered 8 endpoints in 376 milliseconds.
+2023-08-17 11:53:23.401 -05:00 [INF] User profile is available. Using 'C:\Users\soidn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-17 11:57:51.211 -05:00 [INF] Registered 8 endpoints in 364 milliseconds.
+2023-08-17 11:57:51.468 -05:00 [INF] User profile is available. Using 'C:\Users\soidn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-17 11:59:45.985 -05:00 [INF] Registered 8 endpoints in 374 milliseconds.
+2023-08-17 11:59:46.247 -05:00 [INF] User profile is available. Using 'C:\Users\soidn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-17 11:59:48.037 -05:00 [INF] Executed DbCommand (251ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [JWTGatewayHub];
+2023-08-17 11:59:48.137 -05:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [JWTGatewayHub] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-08-17 11:59:48.174 -05:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 11:59:48.311 -05:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AuthRoles] (
+    [Id] uniqueidentifier NOT NULL,
+    [RoleName] nvarchar(max) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    [JsonFIeld] nvarchar(max) NOT NULL,
+    [StatusCode] int NOT NULL,
+    CONSTRAINT [PK_AuthRoles] PRIMARY KEY ([Id])
+);
+2023-08-17 11:59:48.315 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AuthUsers] (
+    [Id] uniqueidentifier NOT NULL,
+    [UserName] nvarchar(max) NOT NULL,
+    [NormalizedUserName] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [NormalizedEmail] nvarchar(max) NOT NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NOT NULL,
+    [SecurityStamp] nvarchar(max) NOT NULL,
+    [ConcurrencyStamp] nvarchar(max) NOT NULL,
+    [PhoneNumber] nvarchar(max) NOT NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [AccessFailedCount] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    [JsonFIeld] nvarchar(max) NOT NULL,
+    [StatusCode] int NOT NULL,
+    CONSTRAINT [PK_AuthUsers] PRIMARY KEY ([Id])
+);
+2023-08-17 11:59:48.317 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Contributors] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    [JsonFIeld] nvarchar(max) NOT NULL,
+    [StatusCode] int NOT NULL,
+    CONSTRAINT [PK_Contributors] PRIMARY KEY ([Id])
+);
+2023-08-17 11:59:48.319 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Projects] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [Priority] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    [JsonFIeld] nvarchar(max) NOT NULL,
+    [StatusCode] int NOT NULL,
+    CONSTRAINT [PK_Projects] PRIMARY KEY ([Id])
+);
+2023-08-17 11:59:48.325 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AuthUserRoles] (
+    [Id] uniqueidentifier NOT NULL,
+    [AuthRoleId] uniqueidentifier NOT NULL,
+    [AuthUserId] uniqueidentifier NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    [JsonFIeld] nvarchar(max) NOT NULL,
+    [StatusCode] int NOT NULL,
+    CONSTRAINT [PK_AuthUserRoles] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AuthUserRoles_AuthRoles_AuthRoleId] FOREIGN KEY ([AuthRoleId]) REFERENCES [AuthRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AuthUserRoles_AuthUsers_AuthUserId] FOREIGN KEY ([AuthUserId]) REFERENCES [AuthUsers] ([Id]) ON DELETE CASCADE
+);
+2023-08-17 11:59:48.328 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ToDoItems] (
+    [Id] uniqueidentifier NOT NULL,
+    [Title] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [ContributorId] uniqueidentifier NULL,
+    [IsDone] bit NOT NULL,
+    [ProjectId] uniqueidentifier NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    [JsonFIeld] nvarchar(max) NOT NULL,
+    [StatusCode] int NOT NULL,
+    CONSTRAINT [PK_ToDoItems] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ToDoItems_Projects_ProjectId] FOREIGN KEY ([ProjectId]) REFERENCES [Projects] ([Id])
+);
+2023-08-17 11:59:48.334 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AuthUserRoles_AuthRoleId] ON [AuthUserRoles] ([AuthRoleId]);
+2023-08-17 11:59:48.336 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AuthUserRoles_AuthUserId] ON [AuthUserRoles] ([AuthUserId]);
+2023-08-17 11:59:48.337 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ToDoItems_ProjectId] ON [ToDoItems] ([ProjectId]);
+2023-08-17 11:59:48.652 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-17 11:59:48.741 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedAt], [p].[JsonFIeld], [p].[Name], [p].[Priority], [p].[StatusCode], [p].[UpdatedAt]
+FROM [Projects] AS [p]
+2023-08-17 11:59:48.755 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ContributorId], [t].[CreatedAt], [t].[Description], [t].[IsDone], [t].[JsonFIeld], [t].[ProjectId], [t].[StatusCode], [t].[Title], [t].[UpdatedAt]
+FROM [ToDoItems] AS [t]
+2023-08-17 11:59:48.763 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedAt], [c].[JsonFIeld], [c].[Name], [c].[StatusCode], [c].[UpdatedAt]
+FROM [Contributors] AS [c]
+2023-08-17 11:59:49.026 -05:00 [INF] Executed DbCommand (59ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 100), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000), @p9='?' (Size = 100), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Contributors] ([Id], [CreatedAt], [JsonFIeld], [Name], [StatusCode], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5),
+(@p6, @p7, @p8, @p9, @p10, @p11);
+2023-08-17 11:59:49.208 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 100), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?' (Size = 4000), @p16='?' (DbType = DateTime2), @p17='?' (DbType = Guid), @p18='?' (DbType = Guid), @p19='?' (DbType = DateTime2), @p20='?' (Size = 4000), @p21='?' (DbType = Boolean), @p22='?' (Size = 4000), @p23='?' (DbType = Guid), @p24='?' (DbType = Int32), @p25='?' (Size = 4000), @p26='?' (DbType = DateTime2), @p27='?' (DbType = Guid), @p28='?' (DbType = Guid), @p29='?' (DbType = DateTime2), @p30='?' (Size = 4000), @p31='?' (DbType = Boolean), @p32='?' (Size = 4000), @p33='?' (DbType = Guid), @p34='?' (DbType = Int32), @p35='?' (Size = 4000), @p36='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([Id], [CreatedAt], [JsonFIeld], [Name], [Priority], [StatusCode], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+INSERT INTO [ToDoItems] ([Id], [ContributorId], [CreatedAt], [Description], [IsDone], [JsonFIeld], [ProjectId], [StatusCode], [Title], [UpdatedAt])
+VALUES (@p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16),
+(@p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26),
+(@p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36);
+2023-08-17 11:59:49.225 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AuthRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-17 11:59:49.227 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AuthRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-17 11:59:49.258 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime2), @p12='?' (DbType = Guid), @p13='?' (DbType = DateTime2), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (DbType = Int32), @p17='?' (DbType = DateTime2), @p18='?' (DbType = Guid), @p19='?' (DbType = DateTime2), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (DbType = Int32), @p23='?' (DbType = DateTime2), @p24='?' (DbType = Guid), @p25='?' (DbType = DateTime2), @p26='?' (Size = 4000), @p27='?' (Size = 4000), @p28='?' (DbType = Int32), @p29='?' (DbType = DateTime2), @p30='?' (DbType = Guid), @p31='?' (DbType = DateTime2), @p32='?' (Size = 4000), @p33='?' (Size = 4000), @p34='?' (DbType = Int32), @p35='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuthRoles] ([Id], [CreatedAt], [JsonFIeld], [RoleName], [StatusCode], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5),
+(@p6, @p7, @p8, @p9, @p10, @p11),
+(@p12, @p13, @p14, @p15, @p16, @p17),
+(@p18, @p19, @p20, @p21, @p22, @p23),
+(@p24, @p25, @p26, @p27, @p28, @p29),
+(@p30, @p31, @p32, @p33, @p34, @p35);
+2023-08-17 11:59:49.264 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AuthUsers] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-17 11:59:49.266 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AuthUsers] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-17 11:59:49.318 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Int32), @p15='?' (DbType = Boolean), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuthUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [JsonFIeld], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [StatusCode], [TwoFactorEnabled], [UpdatedAt], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17);
+2023-08-17 11:59:49.325 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AuthUserRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-17 11:59:49.328 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AuthUserRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-17 11:59:49.380 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[CreatedAt], [a].[JsonFIeld], [a].[RoleName], [a].[StatusCode], [a].[UpdatedAt]
+FROM [AuthRoles] AS [a]
+WHERE [a].[RoleName] = N'admin'
+2023-08-17 11:59:49.388 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[CreatedAt], [a].[JsonFIeld], [a].[RoleName], [a].[StatusCode], [a].[UpdatedAt]
+FROM [AuthRoles] AS [a]
+WHERE [a].[RoleName] = N'contributor:create'
+2023-08-17 11:59:49.394 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[CreatedAt], [a].[JsonFIeld], [a].[RoleName], [a].[StatusCode], [a].[UpdatedAt]
+FROM [AuthRoles] AS [a]
+WHERE [a].[RoleName] = N'contributor:list'
+2023-08-17 11:59:49.405 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[JsonFIeld], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[StatusCode], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+FROM [AuthUsers] AS [a]
+WHERE [a].[StatusCode] = 1
+2023-08-17 11:59:49.442 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = Guid), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (DbType = Guid), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (DbType = DateTime2), @p14='?' (DbType = Guid), @p15='?' (DbType = Guid), @p16='?' (DbType = Guid), @p17='?' (DbType = DateTime2), @p18='?' (Size = 4000), @p19='?' (DbType = Int32), @p20='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuthUserRoles] ([Id], [AuthRoleId], [AuthUserId], [CreatedAt], [JsonFIeld], [StatusCode], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6),
+(@p7, @p8, @p9, @p10, @p11, @p12, @p13),
+(@p14, @p15, @p16, @p17, @p18, @p19, @p20);
+2023-08-17 11:59:49.599 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-17 11:59:49.599 -05:00 [INF] Hosting environment: Development
+2023-08-17 11:59:49.599 -05:00 [INF] Content root path: C:\Users\soidn\source\repos\JWTGatewayHub\src\JWTGatewayHub.Web
+2023-08-17 11:59:49.635 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-08-17 11:59:49.879 -05:00 [WRN] Failed to determine the https port for redirect.
+2023-08-17 11:59:49.918 -05:00 [INF] Executing endpoint 'JWTGatewayHub.Web.Controllers.HomeController.Index (JWTGatewayHub.Web)'
+2023-08-17 11:59:49.933 -05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller JWTGatewayHub.Web.Controllers.HomeController (JWTGatewayHub.Web).
+2023-08-17 11:59:49.951 -05:00 [INF] Executing ViewResult, running view Index.
+2023-08-17 11:59:50.251 -05:00 [INF] Executed ViewResult - view Index executed in 305.3257ms.
+2023-08-17 11:59:50.256 -05:00 [INF] Executed action JWTGatewayHub.Web.Controllers.HomeController.Index (JWTGatewayHub.Web) in 322.049ms
+2023-08-17 11:59:50.257 -05:00 [INF] Executed endpoint 'JWTGatewayHub.Web.Controllers.HomeController.Index (JWTGatewayHub.Web)'
+2023-08-17 11:59:50.310 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 676.1193ms
+2023-08-17 11:59:50.343 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/JWTGatewayHub.Web.styles.css?v=Q5qdNeS7HWqYIc86PUA256_wfXvSdWdpyJRDeVfHDUg - -
+2023-08-17 11:59:50.343 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-08-17 11:59:50.345 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-08-17 11:59:50.371 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12366 application/javascript;+charset=utf-8 27.1182ms
+2023-08-17 11:59:50.388 -05:00 [INF] The file /JWTGatewayHub.Web.styles.css was not modified
+2023-08-17 11:59:50.392 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/JWTGatewayHub.Web.styles.css?v=Q5qdNeS7HWqYIc86PUA256_wfXvSdWdpyJRDeVfHDUg - - - 304 - text/css 48.5566ms
+2023-08-17 11:59:50.401 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.9008ms
+2023-08-17 12:00:15.160 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-08-17 12:00:15.328 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 167.4379ms
+2023-08-17 12:00:15.375 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-08-17 12:00:15.375 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-08-17 12:00:15.378 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12366 application/javascript;+charset=utf-8 3.0697ms
+2023-08-17 12:00:15.406 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.8110ms
+2023-08-17 12:00:15.522 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-08-17 12:00:15.768 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 246.3603ms
+2023-08-17 12:00:24.303 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/auth/login application/json 58
+2023-08-17 12:00:24.304 -05:00 [INF] Executing endpoint 'HTTP: POST /auth/login'
+2023-08-17 12:00:24.493 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[JsonFIeld], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[StatusCode], [a].[TwoFactorEnabled], [a].[UpdatedAt], [a].[UserName]
+FROM [AuthUsers] AS [a]
+WHERE [a].[UserName] = @__userName_0 AND [a].[StatusCode] = 1
+2023-08-17 12:00:24.750 -05:00 [INF] Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthRoleId], [a].[AuthUserId], [a].[CreatedAt], [a].[JsonFIeld], [a].[StatusCode], [a].[UpdatedAt], [a0].[Id], [a0].[CreatedAt], [a0].[JsonFIeld], [a0].[RoleName], [a0].[StatusCode], [a0].[UpdatedAt], [a1].[Id], [a1].[AccessFailedCount], [a1].[ConcurrencyStamp], [a1].[CreatedAt], [a1].[Email], [a1].[EmailConfirmed], [a1].[JsonFIeld], [a1].[LockoutEnd], [a1].[NormalizedEmail], [a1].[NormalizedUserName], [a1].[PasswordHash], [a1].[PhoneNumber], [a1].[PhoneNumberConfirmed], [a1].[SecurityStamp], [a1].[StatusCode], [a1].[TwoFactorEnabled], [a1].[UpdatedAt], [a1].[UserName]
+FROM [AuthUserRoles] AS [a]
+INNER JOIN [AuthRoles] AS [a0] ON [a].[AuthRoleId] = [a0].[Id]
+INNER JOIN [AuthUsers] AS [a1] ON [a].[AuthUserId] = [a1].[Id]
+WHERE [a].[AuthUserId] = @__userId_0 AND [a].[StatusCode] = 1
+2023-08-17 12:00:25.073 -05:00 [INF] Executed endpoint 'HTTP: POST /auth/login'
+2023-08-17 12:00:25.081 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/auth/login application/json 58 - 200 - application/json;+charset=utf-8 777.4572ms
