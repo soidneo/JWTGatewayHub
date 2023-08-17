@@ -2,8 +2,9 @@
 
 # JWT Bearer Token
 JWT token authentication is configured in the Program.cs class. The "IssuerSigningKey" value is set in the application configuration file (appsettings.json).
-    ## Configure Security Endpoints
-    Each endpoint can be configured to require a custom role. For example:
+
+## Configure Security Endpoints
+Each endpoint can be configured to require a custom role. For example:
          Create Contributor Endpoint
          
         .RequireAuthorization(c => c.RequireClaim("role", "parametrics:create"))
